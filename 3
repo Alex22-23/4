@@ -1,0 +1,16 @@
+def append_to_file(text, filename):
+    # Запись
+    with open(filename, 'a', encoding='utf-8') as file:
+        file.write(f"{text}\n")
+
+    # Чтение и вывод чётных строк
+    with open(filename, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    even_lines = [line.strip() for idx, line in enumerate(lines, 1) if idx % 2 == 0]
+    
+    print("\nЧётные строки файла:")
+    for line in even_lines:
+        print(line)
+
+# Пример вызова
+# append_to_file("Новая строка", "example.txt")
